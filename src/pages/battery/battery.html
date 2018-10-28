@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+     Battery
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-card-content>Status:><b>{{ data.mqttStatus }}</b></ion-card-content>
+  </ion-card>
+
+  <ion-row justify-content-center align-items-center>
+    <button ion-button (click)="data.connect()">Connect</button>
+    <button ion-button (click)="data.disconnect()">Disconnect</button>
+  </ion-row>
+
+  <ion-content padding>
+    <ion-card>
+      <ion-card-header>Battery status:</ion-card-header>
+      <ion-card-header>Kitchen:</ion-card-header>
+      <ion-card-content>{{ data.status["kitchen"] }} remaining</ion-card-content>
+      <ion-card-header>Bedroom:</ion-card-header>
+      <ion-card-content>{{ data.status["bedroom"] }} remaining</ion-card-content>
+      <ion-card-header>Living Room:</ion-card-header>
+      <ion-card-content>{{ data.status["living"] }} remaining</ion-card-content>
+      <ion-card-header>Dining Room:</ion-card-header>
+      <ion-card-content>{{ data.status["dining"] }} remaining</ion-card-content>
+      <ion-card-header>Toilet:</ion-card-header>
+      <ion-card-content>{{ data.status["toilet"] }} remaining</ion-card-content>
+    </ion-card>
+
+  </ion-content>

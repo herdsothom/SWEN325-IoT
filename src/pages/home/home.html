@@ -1,17 +1,43 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>
+      Home
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+
+  <ion-card>
+    <ion-card-content>Status: <b>{{data.mqttStatus}}</b></ion-card-content>
+  </ion-card>
+
+  <ion-row justify-content-center align-items-center>
+    <button ion-button (click)="data.connect()">Connect</button>
+    <button ion-button (click)="data.disconnect()">Disconnect</button>
+  </ion-row>
+
+  <ion-card>
+    <ion-card-header>Last message received:</ion-card-header>
+    <ion-card-content>{{data.message}}</ion-card-content>
+    <ion-card-header>Person last seen:</ion-card-header>
+    <ion-card-content>{{data.lastLoc}}</ion-card-content>
+    <ion-card-header>Person last moved:</ion-card-header>
+    <ion-card-content>{{data.lastmotion}}</ion-card-content>
+
+  </ion-card>
+
+  <ion-content padding>
+
+
+  <ion-card>
+    <ion-card-header>Movement Histogram</ion-card-header>
+    <canvas #bCanvas></canvas>
+  </ion-card>
+
+    <ion-card>
+      <ion-card-header>Movement Doughnut Chart</ion-card-header>
+      <canvas #dCanvas></canvas>
+    </ion-card>
+
 </ion-content>
