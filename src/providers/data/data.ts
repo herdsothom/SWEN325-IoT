@@ -95,7 +95,7 @@ export class DataProvider {
     }
 
 
-    if((total-this.lastTimeDetected >= 5*1) && ( !this.triggered )){
+    if((total-this.lastTimeDetected >= 5*60) && ( !this.triggered )){
       this.event.publish("alert", 0);
       this.triggered = true;
     }
